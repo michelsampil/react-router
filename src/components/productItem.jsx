@@ -11,10 +11,10 @@ const ListItem = (prop) => {
     <div className={classes.itemCard}>
       <img className={classes.img} src={item.image} alt={item.title} />
       <section className={classes.textSection}>
-        <Link to={`${item.id}`}>{item.title}</Link>
+        <h2>{item.title}</h2>
         <p className={classes.text}>{item.subheading}</p>
         <p className={classes.text}>{Date(item.date)}</p>
-        <button className={classes.button}> Read More </button>
+        <Link className={classes.button} to={`${item.id}`}>Read more...</Link>
       </section>
     </div>
   );
