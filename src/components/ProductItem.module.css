@@ -1,0 +1,30 @@
+.ProductItem {
+
+}
+
+.itemCard div{
+    display: "flex !important";
+  }
+
+.button button{
+    background-color: "white";
+    border: "3px solid darkGray";
+    borderRadius: "2px";
+    maxWidth: "30%";
+    minHeight: "20%";
+    color: "gray";
+    fontWeight: "bold";
+}
+
+.textSection section{
+    marginLeft: "2%";
+    display: "flex";
+    flexDirection: "column";
+}
+
+.text p{
+    margin: "1%";
+}
+.img img{
+    margin: "2%";
+}
