@@ -8,7 +8,10 @@ const ListItem = (prop) => {
   const [item, setItem] = useState(productItem);
 
   return (
+    // <div style={{backgrounColor: "red", color: "red", display: "flex"}}>
+    <>
     <div className={classes.itemCard}>
+
       <img className={classes.img} src={item.image} alt={item.title} />
       <section className={classes.textSection}>
         <h2>{item.title}</h2>
@@ -17,6 +20,7 @@ const ListItem = (prop) => {
         <Link className={classes.button} to={`${item.id}`}>read more...</Link>
       </section>
     </div>
+    </>
   );
 };
 
