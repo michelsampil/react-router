@@ -1,10 +1,8 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import ProductList from "../components/ProductList.jsx";
+import ProductList from "../components/productList";
 
-const url_1 = "https://run.mocky.io/v3/00efa05c-2efd-4b33-9957-5d5a84285a3e";
-const url_2 = "https://run.mocky.io/v3/bee07291-0003-4391-8f21-b216e3d28d51";
+const url_1 = "https://mocki.io/v1/e4132701-230c-4e1d-93f8-c8c27cab9b48";
 
 const ProductPage = () => {
   const [isLoading, setIsLoading] = useState(true);
