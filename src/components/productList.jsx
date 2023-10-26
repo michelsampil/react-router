@@ -1,10 +1,9 @@
-import React from "react";
 import { useState } from "react";
 import ProductItem from "./ProductItem.jsx";
 
 const ProductList = (props) => {
   const { items } = props;
-  console.log('items bro: ', items)
+  console.log("items bro: ", items);
   const [productItems, setProductItems] = useState(items);
 
   return (
