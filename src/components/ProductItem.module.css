@@ -11,6 +11,9 @@
   min-height: 20%;
   color: gray;
   font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .textSection {
