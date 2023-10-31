@@ -5,7 +5,7 @@ const WelcomePage = () => {
     <section>
       <h1>Welcome!!!</h1>
       <Link to="new-user"> New User </Link>
-      {/* we can define the nestes routes in only one file approach */}
+      {/* we can define the nested routes in only one file approach */}
       {/* <Routes>
             <Route path="new-user" element={<p> Welcome, new user! </p>}/>
         </Routes> */}
