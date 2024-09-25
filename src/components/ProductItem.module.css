@@ -1,6 +1,9 @@
 .itemCard {
   display: flex;
   padding: 2rem;
+  border: solid 2px black;
+  margin: 1rem;
+  border-radius: 15px;
 }
 
 .button {
@@ -29,4 +32,8 @@
   width: 20rem;
   height: 10rem;
   margin: 2%;
+}
+
+.icon {
+  font-size: 5rem;
 }
