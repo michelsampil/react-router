@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const ProductDetailPage = () => {
   // React router provides a useful hook which you can use to
@@ -9,24 +10,36 @@ const ProductDetailPage = () => {
   // to navigate programmatically 👇
   const navigate = useNavigate();
 
+  const [product, setProduct] = useState(null);
+
+  // We want to navigate to the home page after a short delay
   const navigateToHome = () => {
     setTimeout(() => {
       navigate("/welcome");
     }, 5000);
   };
 
-  navigateToHome();
+  useEffect(() => {
+    // Fetch the product details using async/await
+    const fetchProduct = async () => {
+      try {
+        const url = `http://localhost:3000/foods/${params.productId}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        setProduct(data);
+      } catch (err) {
+        console.error("Failed to fetch product:", err);
+      }
+    };
 
-  const products = [
-    { id: "1", icon: "🍔", price: 220, description: "Whooper" },
-    { id: "2", icon: "🍟", price: 100, description: "French Fries" },
-    { id: "3", icon: "🍦", price: 75, description: "Ice cream" },
-    { id: "4", icon: "🍕", price: 150, description: "Pizza" },
-    { id: "5", icon: "🍣", price: 300, description: "Sushi" },
-  ];
+    fetchProduct();
+    navigateToHome();
+  }, [params.productId, navigate]);
 
-  const product = products[params.productId - 1];
+  // We want to render some loading state if the product is not yet loaded 👇
+  if (!product) return <p>Loading product...</p>;
 
+  // We want to render the product details 👇
   return (
     <div
       style={{
@@ -37,7 +50,7 @@ const ProductDetailPage = () => {
       }}
     >
       <h1>Product details</h1>
-      <span style={{ fontSize: " 5rem" }}>{product.icon} </span>
+      <span style={{ fontSize: "5rem" }}>{product.icon}</span>
       <p>Description: {product.description}</p>
       <span>${product.price}</span>
       <p>Product Code: {params.productId}</p>

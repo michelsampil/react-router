@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import ProductList from "../components/productList";
+import ProductList from "../components/ProductList";
 
-const url_1 = "https://mocki.io/v1/d5c3c9ad-f8b7-41d5-b9ec-67e9e1c5cbcd";
+const url = "http://localhost:3000/foods";
 
 const ProductPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -11,7 +11,7 @@ const ProductPage = () => {
   useEffect(() => {
     setIsLoading(true);
     const fetchData = async () => {
-      const response = await fetch(url_1);
+      const response = await fetch(url);
       const productData = await response.json();
 
       setProductList(productData);
