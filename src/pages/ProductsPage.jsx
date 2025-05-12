@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductList from "../components/productList";
 
-const url_1 = "https://mocki.io/v1/3a34d4c9-6050-4e35-a583-e49198fc7b56";
+const url_1 = "https://mocki.io/v1/d5c3c9ad-f8b7-41d5-b9ec-67e9e1c5cbcd";
 
 const ProductPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -11,8 +11,8 @@ const ProductPage = () => {
   useEffect(() => {
     setIsLoading(true);
     const fetchData = async () => {
-      const response = await axios.get(url_1);
-      const productData = await response.data;
+      const response = await fetch(url_1);
+      const productData = await response.json();
 
       setProductList(productData);
       setIsLoading(false);
@@ -20,7 +20,13 @@ const ProductPage = () => {
     fetchData();
   }, []);
 
-  return !isLoading && <ProductList items={productList} />;
+  return (
+    <>
+      {isLoading && <span>Loading...</span>}
+
+      {!isLoading && <ProductList items={productList} />}
+    </>
+  );
 };
 
 export default ProductPage;
